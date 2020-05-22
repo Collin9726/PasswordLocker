@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.6
 from password import Password
 from user import User
+from credentials import Credentials
 password_obj=Password()
 
 def sign_up():
@@ -60,15 +61,16 @@ def login():
         if login_valid:
             print("Login successful!")
             is_login=False
-            account_menu(username_login)
+            user=User.return_user(username_login, password_login)
+            account_menu(username_login, user)
         else:
             print("Login unsuccessful. Try again.")
             is_login=True
 
 
-def account_menu(this_user):
+def account_menu(this_user_name, this_user_object):
     print("\n")
-    print(f'WELCOME TO YOUR ACCOUNT, {this_user.upper()}')
+    print(f'WELCOME TO YOUR ACCOUNT, {this_user_name.upper()}')
     print("What do you want to do?")
     print("1. Add existing credential - press 1")
     print("2. Create new credential   - press 2")
@@ -83,16 +85,16 @@ def account_menu(this_user):
         selected=input("Press option: ")
         if selected=="1":
             is_selected=False
-            Credential.add_credential()
+            this_user_object.credential.add_credential()
         elif selected=="2":
             is_selected=False
-            Credential.create_credential()
+            this_user_object.credential.create_credential()
         elif selected=="3":
             is_selected=False
-            Credential.view_credentials()
+            this_user_object.credential.view_credentials()
         elif selected=="4":
             is_selected=False
-            Credential.delete_credential()
+            this_user_object.credential.delete_credential()
         elif selected=="5":
             is_selected=False
             logout()
