@@ -5,7 +5,15 @@ credential=Credentials()
 
 def sign_up():
     print("-----Sign up here-----")
-    username_signup=input("Username: ")
+    username_valid=True
+    while username_valid:
+        username_signup=input("Username: ")
+        if len(username_signup)<5:
+            username_valid=True
+            print("Username too short. Try again.")
+        else:
+            username_valid=False 
+        
     want_password_valid=True
     while want_password_valid:
         want_sys_password=input("Want system generated password? (Y/n): ")
@@ -14,9 +22,12 @@ def sign_up():
             your_password=credential.gen_password()
             print("Your password: "+your_password)
         elif want_sys_password=="n":
-            password_signup=input("Password: ")
+            password_signup=input("Password (at least 5 chars): ")
             password_confirm=input("Confirm password: ")
-            if password_confirm==password_signup:
+            if len(password_signup)<5:
+                want_password_valid=True
+                print("Password too short. Try again.")
+            elif password_confirm==password_signup:
                 print(username_signup)
                 print("Your password: "+password_confirm)
                 want_password_valid=False
