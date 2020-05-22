@@ -1,7 +1,7 @@
 import user
 import string
 import random
-class Credentials:
+class Password:
     
     password_letters=list(string.ascii_letters)
     password_nums=list(string.digits)
