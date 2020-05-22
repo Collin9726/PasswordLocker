@@ -6,8 +6,9 @@ credential=Credentials()
 def sign_up():
     
     username_signup=" "
-    password_signup=" "    
+    password_signup=" " 
 
+    print("\n")
     print("-----Sign up here-----")
     username_valid=True
     while username_valid:
@@ -24,6 +25,7 @@ def sign_up():
         if want_sys_password=="Y":
             want_password_valid=False
             password_signup=credential.gen_password()
+            print("Signup successful!")
             print("Your password: "+password_signup)
         elif want_sys_password=="n":
             password_signup=input("Password (at least 5 chars): ")
@@ -32,8 +34,7 @@ def sign_up():
                 want_password_valid=True
                 print("Password too short. Try again.")
             elif password_confirm==password_signup:
-                print(username_signup)
-                print("Your password: "+password_confirm)
+                print("Sign up successful!")                
                 want_password_valid=False
             else:
                 print("Passwords did not match. Try again.")
@@ -44,15 +45,24 @@ def sign_up():
 
     new_user=User(username_signup,password_signup)
     new_user.add_user(new_user)
+    login()
 
         
 
 def login():
-    print("-----Log in here-----")
-    username_login=input("Username: ")
-    password_login=input("Password: ")
-    print(username_login)
-    print(password_login)
+    is_login=True
+    while is_login:
+        print("\n")
+        print("-----Log in here-----")
+        username_login=input("Username: ")
+        password_login=input("Password: ")
+        login_valid=User.check_login(username_login, password_login)
+        if login_valid:
+            print("Login successful!")
+            is_login=False
+        else:
+            print("Login unsuccessful. Try again.")
+            is_login=True
 
 def main():
     print("PASSWORD LOCKER")
