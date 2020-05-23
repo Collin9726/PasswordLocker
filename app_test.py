@@ -52,13 +52,31 @@ class AppTest(unittest.TestCase):
     #     self.credentials_obj.add_credential()
     #     self.assertEqual(len(self.credentials_obj.credentials_list),1)
 
-    def test_create_credential_sys_password(self):
-        self.credentials_obj.create_credential()
-        self.assertEqual(len(self.credentials_obj.credentials_list),1) 
+    # def test_create_credential_sys_password(self):
+    #     print(" ")
+    #     print("### Create credential with system password test ###")
+    #     self.credentials_obj.create_credential()
+    #     self.assertEqual(len(self.credentials_obj.credentials_list),1) 
 
-    def test_create_credential_custom_password(self):
-        self.credentials_obj.create_credential()
-        self.assertEqual(len(self.credentials_obj.credentials_list),1)        
+    # def test_create_credential_custom_password(self):
+    #     print(" ")
+    #     print("### Create credential with custom password test ###")
+    #     self.credentials_obj.create_credential()
+    #     self.assertEqual(len(self.credentials_obj.credentials_list),1)     
+
+    # def test_delete_credential(self):
+    #     print(" ")
+    #     print("### Delete credential test ###")
+    #     self.credentials_obj.add_credential()
+    #     self.credentials_obj.delete_credential()   
+    #     self.assertEqual(len(self.credentials_obj.credentials_list),0)
+
+    def test_copy_credential(self):
+        print(" ")
+        print("### Copy credential test. Use any account name, username: 'collin', password: 'collin123' ###")
+        self.credentials_obj.add_credential()
+        self.credentials_obj.copy_credential()
+        self.assertEqual(pyperclip.paste(), "collin collin123")
 
 
 if __name__=='__main__':
