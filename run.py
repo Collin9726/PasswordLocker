@@ -69,9 +69,9 @@ def login():
 
 
 def account_menu(this_user_name, this_user_object):
-    print("\n")
-    print("*"*45)
     print(" ")
+    print("*"*45)
+    # print(" ")
     print(f'WELCOME TO YOUR ACCOUNT, {this_user_name.upper()}')
     print("Options menu")
     print("1. Add existing credential - press 1")
@@ -111,8 +111,7 @@ def main():
     print("="*15)
     proceed="1"
     to_proceed=True
-    while to_proceed:
-        print(" ")
+    while to_proceed:        
         proceed=input("Press 1 to login or 0 to exit: ")
         if proceed=="1":
             to_proceed=True

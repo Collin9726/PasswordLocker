@@ -48,8 +48,34 @@ class Credentials:
     def view_credentials(self):
         print(" ")
         print("-----View credentials here-----")
-        for item in self.credentials_list:
-            print(f'Account: {item.acc_nm} ; Username: {item.acc_uname} ; Password: {item.acc_pass}')
+        if len(self.credentials_list)==0:
+            print("No credentials saved. Add a credential.")
+        else:
+            for item in self.credentials_list:
+                print(f'Account: {item.acc_nm} ; Username: {item.acc_uname} ; Password: {item.acc_pass}')
 
     def delete_credential(self):
-        pass
+        print(" ")
+        print("            *-Delete-*")
+        self.view_credentials()
+        print(" ")
+        if len(self.credentials_list)==0:
+            pass
+        else:
+            delete_valid=True
+            while delete_valid:
+                acc_delete=input("Type account name to delete: ")
+                for item in self.credentials_list:
+                    if item.acc_nm==acc_delete:
+                        self.credentials_list.remove(item)
+                        print(f'{acc_delete} account credentials deleted.')
+                        delete_valid=False
+                        break
+                    else:                        
+                        delete_valid=True
+                if delete_valid==False:
+                    pass
+                else:
+                    print(f'Account \'{acc_delete}\' not found. Try again.')
+                              
+        
