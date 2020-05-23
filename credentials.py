@@ -1,5 +1,6 @@
 import password
 import account
+import pyperclip
 password_obj1=password.Password()
 class Credentials:
     def __init__(self):
@@ -77,5 +78,30 @@ class Credentials:
                     pass
                 else:
                     print(f'Account \'{acc_delete}\' not found. Try again.')
+
+    def copy_credential(self):
+        print(" ")
+        print("     -Copy username & password-")
+        self.view_credentials()
+        print(" ")
+        if len(self.credentials_list)==0:
+            pass
+        else:
+            copy_valid=True
+            while copy_valid:
+                acc_copy=input("Type account name: ")
+                for item in self.credentials_list:
+                    if item.acc_nm==acc_copy:
+                        user_n_pass=item.acc_uname+" "+item.acc_pass
+                        pyperclip.copy(user_n_pass)
+                        print(f'{acc_copy} username & password copied to clipboard.')
+                        copy_valid=False
+                        break
+                    else:                        
+                        copy_valid=True
+                if copy_valid==False:
+                    pass
+                else:
+                    print(f'Account \'{acc_copy}\' not found. Try again.')
                               
         

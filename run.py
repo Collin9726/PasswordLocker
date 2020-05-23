@@ -25,9 +25,9 @@ def sign_up():
         want_sys_password=input("Want system generated password? (Y/n): ")        
         if want_sys_password=="Y":
             want_password_valid=False
-            password_signup=password_obj.gen_password()
-            print("Signup successful!")
+            password_signup=password_obj.gen_password()            
             print("Your password: "+password_signup+" (copied to clipboard)")
+            print("Signup successful!")
         elif want_sys_password=="n":
             password_signup=input("Password (at least 5 chars): ")
             password_confirm=input("Confirm password: ")
@@ -74,11 +74,12 @@ def account_menu(this_user_name, this_user_object):
     # print(" ")
     print(f'WELCOME TO YOUR ACCOUNT, {this_user_name.upper()}')
     print("Options menu")
-    print("1. Add existing credential - press 1")
-    print("2. Create new credential   - press 2")
-    print("3. View saved credentials  - press 3")
-    print("4. Delete saved credential - press 4")
-    print("5. Log out                 - press 5")    
+    print("1. Add existing credential  - press 1")
+    print("2. Create new credential    - press 2")
+    print("3. View saved credentials   - press 3")
+    print("4. Copy username & password - press 4")
+    print("5. Delete saved credential  - press 5")
+    print("6. Log out                  - press 6")    
     # print("\n")
     
     is_selected=True
@@ -96,10 +97,14 @@ def account_menu(this_user_name, this_user_object):
             this_user_object.credential.view_credentials()
         elif selected=="4":
             is_selected=True
-            this_user_object.credential.delete_credential()
+            this_user_object.credential.copy_credential()
         elif selected=="5":
+            is_selected=True
+            this_user_object.credential.delete_credential()
+        elif selected=="6":
             is_selected=False 
-            print("LOGGED OUT.")       
+            print("LOGGED OUT.")
+            print(" ")       
         else:
             print("Invalid option. Try again.")
             is_selected=True
