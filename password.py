@@ -29,6 +29,4 @@ class Password:
         sys_password="".join(random.sample(cls.password_chars, k=pass_length))
         pyperclip.copy(sys_password)               
         return sys_password
-
-# obj=Credentials()
-# print(obj.gen_password()) 
+ 
