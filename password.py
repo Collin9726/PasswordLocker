@@ -1,8 +1,6 @@
-import user
 import string
 import random
-class Password:
-    
+class Password:    
     password_letters=list(string.ascii_letters)
     password_nums=list(string.digits)
     password_symbols=["#","@","&","$","%"]
@@ -17,4 +15,4 @@ class Password:
         return sys_password
 
 # obj=Credentials()
-# print(obj.gen_password())
+# print(obj.gen_password()) 
