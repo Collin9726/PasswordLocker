@@ -2,7 +2,8 @@ import password
 import account
 password_obj1=password.Password()
 class Credentials:
-    credentials_list=[]
+    def __init__(self):
+        self.credentials_list=[]
     
     def add_credential(self):
         print(" ")
@@ -45,6 +46,8 @@ class Credentials:
         print(f'{acc_name} account credentials created.')
 
     def view_credentials(self):
+        print(" ")
+        print("-----View credentials here-----")
         for item in self.credentials_list:
             print(f'Account: {item.acc_nm} ; Username: {item.acc_uname} ; Password: {item.acc_pass}')
 
