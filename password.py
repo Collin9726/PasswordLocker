@@ -1,7 +1,10 @@
 import string
 import random
 import pyperclip
-class Password:    
+class Password:
+    """
+    Class that generates system given passwords.
+    """    
     password_letters=list(string.ascii_letters)
     password_nums=list(string.digits)
     password_symbols=["#","@","&","$","%"]
@@ -12,6 +15,12 @@ class Password:
 
     @classmethod
     def gen_password(cls):
+        """
+        Method to generate system given passwords.
+        
+        Returns:
+            System generated password
+        """
         pass_length=10
         num_valid=True
         while num_valid:

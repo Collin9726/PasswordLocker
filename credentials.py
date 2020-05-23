@@ -3,10 +3,17 @@ import account
 import pyperclip
 password_obj1=password.Password()
 class Credentials:
+    '''
+    Class that adds user credentials to the app.
+    '''
+
     def __init__(self):
         self.credentials_list=[]
     
     def add_credential(self):
+        '''
+        Method to add existing credentials to the app.
+        '''
         print(" ")
         print("-----Add credential here-----")
         acc_name=input("Account name: ")
@@ -17,6 +24,9 @@ class Credentials:
         print(f'{acc_name} account credentials added.')
 
     def create_credential(self):
+        '''
+        Method to create new credential and add it to the app.
+        '''
         print(" ")
         print("-----Create new credential here-----")
         acc_name=input("Account name: ")
@@ -47,6 +57,9 @@ class Credentials:
         print(f'{acc_name} account credentials created.')
 
     def view_credentials(self):
+        '''
+        Method to display stored credentials.
+        '''
         print(" ")
         print("-----View credentials here-----")
         if len(self.credentials_list)==0:
@@ -56,6 +69,9 @@ class Credentials:
                 print(f'Account: {item.acc_nm} ; Username: {item.acc_uname} ; Password: {item.acc_pass}')
 
     def delete_credential(self):
+        '''
+        Method to delete stored credentials.
+        '''
         print(" ")
         print("            -Delete-")
         self.view_credentials()
@@ -80,6 +96,9 @@ class Credentials:
                     print(f'**Account \'{acc_delete}\' not found. Try again.')
 
     def copy_credential(self):
+        '''
+        Method to copy credential username and password to clipboard.
+        '''
         print(" ")
         print("     -Copy username & password-")
         self.view_credentials()

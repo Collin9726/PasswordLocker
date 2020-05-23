@@ -5,6 +5,9 @@ import user
 password_obj=password.Password()
 
 def sign_up():
+    '''
+    Function that allows a new user to sign up.
+    '''
     
     username_signup=" "
     password_signup=" " 
@@ -51,6 +54,9 @@ def sign_up():
         
 
 def login():
+    '''
+    Function that allows a user with an existing account to login.
+    '''
     is_login=True
     while is_login:
         print(" ")
@@ -69,6 +75,9 @@ def login():
 
 
 def account_menu(this_user_name, this_user_object):
+    '''
+    Function that displays a navigation menu in a user's account.
+    '''
     print(" ")
     print("*"*45)    
     print(f'WELCOME TO YOUR ACCOUNT, {this_user_name.upper()}')
