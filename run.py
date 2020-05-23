@@ -27,7 +27,7 @@ def sign_up():
             want_password_valid=False
             password_signup=password_obj.gen_password()
             print("Signup successful!")
-            print("Your password: "+password_signup)
+            print("Your password: "+password_signup+" (copied to clipboard)")
         elif want_sys_password=="n":
             password_signup=input("Password (at least 5 chars): ")
             password_confirm=input("Confirm password: ")

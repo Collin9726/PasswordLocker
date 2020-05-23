@@ -28,7 +28,7 @@ class Credentials:
             if want_sys_password=="Y":
                 want_password_valid=False
                 acc_password=password_obj1.gen_password()                
-                print("Your password: "+acc_password)
+                print("Your password: "+acc_password+" (copied to clipboard)")
             elif want_sys_password=="n":
                 acc_password=input("Account password: ")
                 password_confirm=input("Confirm password: ")                
@@ -56,7 +56,7 @@ class Credentials:
 
     def delete_credential(self):
         print(" ")
-        print("            *-Delete-*")
+        print("            -Delete-")
         self.view_credentials()
         print(" ")
         if len(self.credentials_list)==0:
