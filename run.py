@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.6
 import password
 import user
-# from credentials import Credentials
+
 password_obj=password.Password()
 
 def sign_up():
@@ -16,7 +16,7 @@ def sign_up():
         username_signup=input("Username (at least 5 chars): ")
         if len(username_signup)<5:
             username_valid=True
-            print("Username too short. Try again.")
+            print("**Username too short. Try again.")
         else:
             username_valid=False 
         
@@ -33,15 +33,15 @@ def sign_up():
             password_confirm=input("Confirm password: ")
             if len(password_signup)<5:
                 want_password_valid=True
-                print("Password too short. Try again.")
+                print("**Password too short. Try again.")
             elif password_confirm==password_signup:
                 print("Signup successful!")                
                 want_password_valid=False
             else:
-                print("Passwords did not match. Try again.")
+                print("**Passwords did not match. Try again.")
                 want_password_valid=True
         else:
-            print("Invalid choice. Choose Y/n")
+            print("**Invalid choice. Choose Y/n")
             want_password_valid=True
 
     new_user=user.User(username_signup,password_signup)
@@ -64,7 +64,7 @@ def login():
             user_obj=user.User.return_user(username_login, password_login)
             account_menu(username_login, user_obj)
         else:
-            print("Login unsuccessful. Try again.")
+            print("**Login unsuccessful. Try again.")
             is_login=True
 
 
@@ -106,7 +106,7 @@ def account_menu(this_user_name, this_user_object):
             print("LOGGED OUT.")
             print(" ")       
         else:
-            print("Invalid option. Try again.")
+            print("**Invalid option. Try again.")
             is_selected=True
             
 
@@ -131,13 +131,13 @@ def main():
                     sign_up()
                     has_account_valid=False
                 else:
-                    print("Invalid choice. Choose y/N")
+                    print("**Invalid choice. Choose y/N")
                     has_account_valid=True
             
         elif proceed=="0":
             to_proceed=False
         else:
-            print("Invalid option.")
+            print("**Invalid option.")
             to_proceed=True
     print("---BYE---")
     

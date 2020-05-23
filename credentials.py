@@ -36,10 +36,10 @@ class Credentials:
                 if acc_password==password_confirm:                                    
                     want_password_valid=False
                 else:
-                    print("Passwords did not match. Try again.")
+                    print("**Passwords did not match. Try again.")
                     want_password_valid=True
             else:
-                print("Invalid choice. Choose Y/n")
+                print("**Invalid choice. Choose Y/n")
                 want_password_valid=True    
         
         new_account=account.Account(acc_name,acc_username,acc_password)
@@ -77,7 +77,7 @@ class Credentials:
                 if delete_valid==False:
                     pass
                 else:
-                    print(f'Account \'{acc_delete}\' not found. Try again.')
+                    print(f'**Account \'{acc_delete}\' not found. Try again.')
 
     def copy_credential(self):
         print(" ")
@@ -102,6 +102,6 @@ class Credentials:
                 if copy_valid==False:
                     pass
                 else:
-                    print(f'Account \'{acc_copy}\' not found. Try again.')
+                    print(f'**Account \'{acc_copy}\' not found. Try again.')
                               
         
